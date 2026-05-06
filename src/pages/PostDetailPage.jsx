@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { getPostBySlug, getRelatedPosts } from '../data/posts';
 import { CategoryBadge } from '../components/PostCard';
 import NewsletterSignup from '../components/NewsletterSignup';
-import { Clock, Calendar, ArrowLeft, Twitter, Link2, Tag } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, Link2, Tag } from 'lucide-react';
 import PostCard from '../components/PostCard';
 
 export default function PostDetailPage() {
@@ -63,7 +63,7 @@ export default function PostDetailPage() {
               {/* Share */}
               <div className="ml-auto flex items-center gap-2">
                 <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`} target="_blank" rel="noreferrer" className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-sky-500/10 transition-colors border border-slate-700/40">
-                  <Twitter size={15} />
+                  {/* <Twitter size={15} /> */}
                 </a>
                 <button onClick={handleCopyLink} className="p-2 rounded-lg text-slate-400 hover:text-slate-100 hover:bg-slate-800/60 transition-colors border border-slate-700/40">
                   <Link2 size={15} />

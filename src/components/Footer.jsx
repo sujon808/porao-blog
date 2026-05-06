@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Feather, Twitter, Github, Rss } from 'lucide-react';
+// import { Feather, Twitter, Github, Rss } from 'lucide-react';
 
 const footerLinks = {
   Explore: [
@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center shadow-lg">
-                <Feather size={18} className="text-white" />
+                {/* <Feather size={18} className="text-white" /> */}
               </div>
               <span className="font-serif font-bold text-2xl text-slate-100">
                 Porao<span className="text-sky-400">Blog</span>
@@ -36,13 +36,13 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3 mt-6">
               <a href="https://twitter.com" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-slate-800/60 text-slate-400 hover:text-sky-400 hover:bg-sky-500/10 transition-colors border border-slate-700/40">
-                <Twitter size={16} />
+                {/* <Twitter size={16} /> */}
               </a>
               <a href="https://github.com" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-slate-800/60 text-slate-400 hover:text-slate-100 hover:bg-slate-800 transition-colors border border-slate-700/40">
-                <Github size={16} />
+                {/* <Github size={16} /> */}
               </a>
               <a href="/rss.xml" className="p-2.5 rounded-xl bg-slate-800/60 text-slate-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors border border-slate-700/40">
-                <Rss size={16} />
+                {/* <Rss size={16} /> */}
               </a>
             </div>
           </div>

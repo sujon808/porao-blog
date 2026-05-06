@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Mail, MapPin, Twitter, CheckCircle, Send } from 'lucide-react';
+import { Mail, MapPin, CheckCircle, Send } from 'lucide-react';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'hello@poraoblog.com', href: 'mailto:hello@poraoblog.com' },
-  { icon: Twitter, label: 'Twitter', value: '@poraoblog', href: 'https://twitter.com' },
+  { icon: Mail, label: 'Twitter', value: '@poraoblog', href: 'https://twitter.com' },
   { icon: MapPin, label: 'Based in', value: 'Dhaka, Bangladesh', href: null },
 ];
 

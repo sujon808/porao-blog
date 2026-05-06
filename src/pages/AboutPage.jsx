@@ -1,7 +1,7 @@
 import { authors } from '../data/posts';
 import { posts } from '../data/posts';
 import { Link } from 'react-router-dom';
-import { Twitter, FileText, Users } from 'lucide-react';
+import { FileText, Users } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -31,7 +31,7 @@ export default function AboutPage() {
           {[
             { icon: FileText, label: 'Articles Published', value: posts.length + '+' },
             { icon: Users, label: 'Monthly Readers', value: '8K+' },
-            { icon: Twitter, label: 'Newsletter Subscribers', value: '5K+' },
+            { icon: Users, label: 'Newsletter Subscribers', value: '5K+' },
           ].map(({ icon: Icon, label, value }) => (
             <div key={label} className="glass-card rounded-2xl p-6 text-center">
               <Icon size={22} className="text-sky-400 mx-auto mb-3" />
