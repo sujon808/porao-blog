@@ -35,7 +35,7 @@ export default function Navbar() {
               <Feather size={16} className="text-white" />
             </div>
             <span className="font-serif font-bold text-xl text-slate-100 tracking-tight">
-              Porao<span className="text-sky-400">Blog</span>
+              Porao<span className="text-sky-400">BlogV2</span>
             </span>
           </Link>
 
@@ -47,10 +47,9 @@ export default function Navbar() {
                 to={to}
                 end={to === '/'}
                 className={({ isActive }) =>
-                  `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isActive
-                      ? 'text-sky-400 bg-sky-500/10'
-                      : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/60'
+                  `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${isActive
+                    ? 'text-sky-400 bg-sky-500/10'
+                    : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/60'
                   }`
                 }
               >
@@ -113,8 +112,7 @@ export default function Navbar() {
                 end={to === '/'}
                 onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
-                  `px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/60'
+                  `px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive ? 'text-sky-400 bg-sky-500/10' : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/60'
                   }`
                 }
               >
