@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { getPostBySlug, getRelatedPosts } from '../data/posts';
+import { getPostBySlug, getRelatedPosts } from '../lib/storage';
 import { CategoryBadge } from '../components/PostCard';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { Clock, Calendar, ArrowLeft, Link2, Tag } from 'lucide-react';

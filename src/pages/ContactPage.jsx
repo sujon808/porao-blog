@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin, CheckCircle, Send } from 'lucide-react';
+import { saveMessage } from '../lib/storage';
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'hello@poraoblog.com', href: 'mailto:hello@poraoblog.com' },
@@ -15,6 +16,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    saveMessage({ ...form, source: 'Contact Page' });
     setSubmitted(true);
   };
 

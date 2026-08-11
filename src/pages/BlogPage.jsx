@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { posts, categories } from '../data/posts';
+import { getAllPosts, getAllCategories } from '../lib/storage';
 import PostCard from '../components/PostCard';
 import { Search, SlidersHorizontal } from 'lucide-react';
 
 export default function BlogPage() {
+  const posts      = getAllPosts();
+  const categories = getAllCategories();
   const [searchParams] = useSearchParams();
   const initialSearch = searchParams.get('search') || '';
   const [query, setQuery] = useState(initialSearch);

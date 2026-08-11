@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
-import { posts, getFeaturedPosts } from '../data/posts';
+import { getAllPosts, getFeaturedPosts } from '../lib/storage';
 import PostCard from '../components/PostCard';
 import NewsletterSignup from '../components/NewsletterSignup';
 import { ArrowRight, TrendingUp, Sparkles } from 'lucide-react';
 import { CategoryBadge } from '../components/PostCard';
 
 export default function HomePage() {
-  const featuredPosts = getFeaturedPosts();
-  const heroPrimary = featuredPosts[0];
-  const heroSecondary = featuredPosts.slice(1, 3);
-  const recentPosts = posts.slice(0, 4);
-  const trendingPosts = posts.slice(2, 5);
+  const posts        = getAllPosts();
+  const featuredPosts  = getFeaturedPosts();
+  const heroPrimary    = featuredPosts[0];
+  const heroSecondary  = featuredPosts.slice(1, 3);
+  const recentPosts    = posts.slice(0, 4);
+  const trendingPosts  = posts.slice(2, 5);
 
   return (
     <main className="hero-gradient min-h-screen">

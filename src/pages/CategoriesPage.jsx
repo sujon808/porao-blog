@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { categories, posts } from '../data/posts';
+import { getAllCategories, getAllPosts } from '../lib/storage';
 import { CategoryBadge } from '../components/PostCard';
 import { ArrowRight } from 'lucide-react';
 
@@ -43,6 +43,8 @@ const categoryMeta = {
 };
 
 export default function CategoriesPage() {
+  const categories = getAllCategories();
+  const posts      = getAllPosts();
   return (
     <main className="hero-gradient min-h-screen pt-24 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
