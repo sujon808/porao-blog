@@ -66,7 +66,11 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm">© {new Date().getFullYear()} Porao Blog. All rights reserved.</p>
-          <p className="text-slate-600 text-xs">Made with ♥ for curious minds</p>
+          <div className="flex items-center gap-4 text-xs">
+            <Link to="/admin/login" className="text-slate-600 hover:text-sky-400 transition-colors">Admin Login</Link>
+            <span className="text-slate-800">|</span>
+            <p className="text-slate-600">Made with ♥ for curious minds</p>
+          </div>
         </div>
       </div>
     </footer>
