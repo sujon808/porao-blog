@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Clock, User } from 'lucide-react';
+import Icon from './Icons';
 
 const categoryColors = {
   technology: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
@@ -22,21 +22,13 @@ export default function PostCard({ post, featured = false }) {
   if (featured) {
     return (
       <Link to={`/blog/${post.slug}`} className="group block glass-card rounded-2xl overflow-hidden hover:border-sky-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-sky-500/5">
-        <div className="relative overflow-hidden h-64">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+        <div className="relative overflow-hidden h-48">
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
-          <div className="absolute top-4 left-4">
-            <CategoryBadge category={post.category} />
-          </div>
+          <div className="absolute top-4 left-4"><CategoryBadge category={post.category} /></div>
         </div>
-        <div className="p-6">
-          <h2 className="font-serif text-xl font-bold text-slate-100 mb-2 group-hover:text-sky-400 transition-colors leading-snug line-clamp-2">
-            {post.title}
-          </h2>
+        <div className="p-5">
+          <h2 className="font-serif text-lg font-bold text-slate-100 mb-2 group-hover:text-sky-400 transition-colors leading-snug line-clamp-2">{post.title}</h2>
           <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 mb-4">{post.excerpt}</p>
           <div className="flex items-center justify-between text-xs text-slate-500">
             <div className="flex items-center gap-1.5">
@@ -44,7 +36,7 @@ export default function PostCard({ post, featured = false }) {
               <span>{post.author.name}</span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1"><Clock size={12} />{post.readTime}</span>
+              <span className="flex items-center gap-1"><Icon.Clock size={11} />{post.readTime}</span>
               <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
             </div>
           </div>
@@ -54,21 +46,15 @@ export default function PostCard({ post, featured = false }) {
   }
 
   return (
-    <Link to={`/blog/${post.slug}`} className="group flex gap-4 p-4 glass-card rounded-xl hover:border-sky-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/5">
-      <div className="relative overflow-hidden rounded-lg w-24 h-24 flex-shrink-0">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+    <Link to={`/blog/${post.slug}`} className="group flex gap-4 p-4 glass-card rounded-xl hover:border-sky-500/30 transition-all duration-300">
+      <div className="relative overflow-hidden rounded-lg w-20 h-20 flex-shrink-0">
+        <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
       </div>
       <div className="flex-1 min-w-0">
         <CategoryBadge category={post.category} />
-        <h3 className="font-serif text-base font-bold text-slate-100 mt-1.5 mb-1 group-hover:text-sky-400 transition-colors leading-snug line-clamp-2">
-          {post.title}
-        </h3>
+        <h3 className="font-serif text-sm font-bold text-slate-100 mt-1.5 mb-1 group-hover:text-sky-400 transition-colors leading-snug line-clamp-2">{post.title}</h3>
         <div className="flex items-center gap-3 text-xs text-slate-500">
-          <span className="flex items-center gap-1"><Clock size={11} />{post.readTime}</span>
+          <span className="flex items-center gap-1"><Icon.Clock size={11} />{post.readTime}</span>
           <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
         </div>
       </div>

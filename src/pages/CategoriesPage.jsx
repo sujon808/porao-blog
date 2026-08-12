@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { getAllCategories, getAllPosts } from '../lib/storage';
+import { categories, posts } from '../data/posts';
 import { CategoryBadge } from '../components/PostCard';
-import { ArrowRight } from 'lucide-react';
+import Icon from '../components/Icons';
 
 const categoryMeta = {
   technology: {
@@ -74,7 +74,7 @@ export default function CategoriesPage() {
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-slate-500 font-medium">{count} article{count !== 1 ? 's' : ''}</span>
                   <span className="flex items-center gap-1 text-sky-400 text-xs font-semibold group-hover:gap-2 transition-all">
-                    Explore <ArrowRight size={12} />
+                    Explore <Icon.ArrowRight size={12} />
                   </span>
                 </div>
               </Link>
@@ -95,7 +95,7 @@ export default function CategoriesPage() {
                   <CategoryBadge category={cat.id} />
                 </div>
                 <Link to={`/blog?category=${cat.id}`} className="flex items-center gap-1 text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors">
-                  View all <ArrowRight size={13} />
+                  View all <Icon.ArrowRight size={13} />
                 </Link>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
