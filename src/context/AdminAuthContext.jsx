@@ -1,39 +1,55 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-
-// Default admin credentials (hardcoded for frontend-only template)
-const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin@123',
-};
+import { api } from '../lib/api';
 
 const AdminAuthContext = createContext(null);
 
 export function AdminAuthProvider({ children }) {
   const [admin, setAdmin] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem('pb_admin');
-    if (stored) setAdmin(JSON.parse(stored));
+    async function loadAdmin() {
+      const token = localStorage.getItem('porao_admin_token');
+      if (token) {
+        try {
+          const userData = await api.auth.getMe();
+          if (userData.role === 'admin') {
+            setAdmin(userData);
+          } else {
+            localStorage.removeItem('porao_admin_token');
+          }
+        } catch (error) {
+          console.error('Failed to load admin session:', error.message);
+          localStorage.removeItem('porao_admin_token');
+        }
+      }
+      setLoading(false);
+    }
+    loadAdmin();
   }, []);
 
-  const adminLogin = ({ username, password }) => {
-    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-      const adminUser = { username, role: 'admin', loginAt: new Date().toISOString() };
-      localStorage.setItem('pb_admin', JSON.stringify(adminUser));
-      setAdmin(adminUser);
+  const adminLogin = async ({ email, password }) => {
+    try {
+      const data = await api.auth.login(email, password);
+      if (data.user.role !== 'admin') {
+        return { error: 'Access denied. You are not an administrator.' };
+      }
+      localStorage.setItem('porao_admin_token', data.token);
+      setAdmin(data.user);
       return { success: true };
+    } catch (error) {
+      return { error: error.message };
     }
-    return { error: 'Invalid admin credentials.' };
   };
 
   const adminLogout = () => {
-    localStorage.removeItem('pb_admin');
+    localStorage.removeItem('porao_admin_token');
     setAdmin(null);
   };
 
   return (
-    <AdminAuthContext.Provider value={{ admin, adminLogin, adminLogout }}>
-      {children}
+    <AdminAuthContext.Provider value={{ admin, loading, adminLogin, adminLogout }}>
+      {!loading && children}
     </AdminAuthContext.Provider>
   );
 }

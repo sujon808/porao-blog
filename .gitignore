@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+*.env
+
+# Subdirectory node_modules
+**/node_modules
+
